@@ -1,0 +1,628 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Comparison of FL Frameworks</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="9ee7cda9-a4e7-41aa-9e19-0790eadfffa4" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">⚖️</span></div><h1 class="page-title">Comparison of FL Frameworks</h1></header><div class="page-body"><p id="b829ef9c-2619-438b-9eab-f830b5542985" class="">
+</p><figure id="ca9ef7af-1495-45d6-8396-c793e90be061" class="link-to-page"><a href="Comparison%20of%20FL%20Frameworks%209ee7cda9a4e741aa9e190790eadfffa4/Federated%20Learning%20Frameworks%20Table%20ca9ef7af149545d68396c793e90be061.html"><span class="icon">🏢</span>Federated Learning Frameworks Table</a></figure><p id="81758155-29fb-40fc-8f37-0aa1196a0975" class="">Federated Query technologies</p><ul id="d2f4786e-48a7-459a-a320-469b08d4a0e1" class="bulleted-list"><li>Microsoft U-SQL</li></ul><p id="6ba01cb9-8afd-406d-9e48-f20cd527e801" class=""><a href="https://www.mssqltips.com/sqlservertip/5886/write-federated-usql-queries-to-join-azure-data-lake-store-files-to-azure-sql-db/">https://www.mssqltips.com/sqlservertip/5886/write-federated-usql-queries-to-join-azure-data-lake-store-files-to-azure-sql-db/</a></p><ul id="8590e099-a216-4678-b5e3-b8ea628f4772" class="bulleted-list"><li>Presto</li></ul><p id="5045f1f7-f36f-4825-ab52-108cd45d2630" class=""><a href="https://prestodb.io/">https://prestodb.io/</a></p><p id="9662023a-4e48-4488-b616-0f685b7d2642" class=""><a href="https://towardsdatascience.com/presto-federated-queries-e8f06db95c29">https://towardsdatascience.com/presto-federated-queries-e8f06db95c29</a></p><p id="619eac73-aba4-4af1-962e-ccc21e711965" class="">Federated query technologies are for query data in SQL language from different data sources, using external tables, but without moving the actual data.</p><h2 id="c2211fe9-4c73-4a4f-aa66-5e8c0ded44cd" class="">Comparison of Federated Learning technologies</h2><h3 id="22917b27-9db6-4b94-b3da-384aaaf85687" class=""><strong>PySyft 0.3</strong></h3><ul id="45e4ca63-111e-43b1-aa2e-022b182ea09c" class="bulleted-list"><li>Duet can be used only in real-time, which means that on both sides (data owner and data scientist) they have to sit in front of their laptop during analysis, since every time the data scientist wants to get data (even it&#x27;s a calculated value, e.g. mean) he needs to send a request to the data owner and the data owner has to accept it. So this is an &quot;online&quot; training and analysis. In short term, they assume that data owner and data scientist share their screens during analysis.</li></ul><ul id="3a239c78-1d60-480d-9998-73bd86a09d17" class="bulleted-list"><li>They plan to create offline training, where the data owner doesn&#x27;t have to accept every request, but they don&#x27;t know exactly how to solve it yet.</li></ul><ul id="606aa023-a3d8-4f0a-a383-6da59a8f66b5" class="bulleted-list"><li>They work with an &quot;allowlist&quot;, which means we can&#x27;t use a PyTorch function remotely until they add it to the &quot;allowlist&quot;. That is necessary for them to make remote execution secure.</li></ul><p id="8fd7c4a3-fdc3-43f0-bd33-90da4481bb94" class="">Here are the sources:</p><ul id="2bc9ed3f-11a3-400b-858d-41b695a814be" class="bulleted-list"><li>Roadmap: <a href="https://www.youtube.com/watch?v=QUTRN3G1l0I&amp;feature=youtu.be&amp;t=310">https://www.youtube.com/watch?v=QUTRN3G1l0I&amp;feature=youtu.be&amp;t=310</a></li></ul><ul id="12718bcf-b9c8-421e-b1af-e81b97a96aff" class="bulleted-list"><li>Duet tutorial: <a href="https://www.youtube.com/watch?v=DppXfA6C8L8&amp;ab_channel=OpenMined">https://www.youtube.com/watch?v=DppXfA6C8L8&amp;ab_channel=OpenMined</a></li></ul><p id="2138f8d7-c250-4335-8d82-e8f67e491fb2" class="">We shouldn&#x27;t use PySyft 0.3, since for now, it&#x27;s inflexible and not scalable with Duet. On the other hand, we can&#x27;t wait for them to allow the remote execution of Pytorch functions, and the offline training is missing, which is essential. Their roadmap is rough and living so it can change anytime. Moreover, as this version is under development, it may contain bugs even later on, and we would have to wait for them to fix it.</p><h3 id="6d18479b-7bbc-4c4a-8577-b5e859c07877" class=""><strong>Tensorflow Federated</strong></h3><p id="bedee7f9-2422-464d-91b6-c674069cc288" class="">https://www.tensorflow.org/federated/faq<div class="indented"><p id="baf504e5-9abb-4c6e-91ec-6c8a206323ad" class="">TensorFlow Federated (developed by Google) speciﬁcally targets research use cases, providing large-scale simulation capabilities as well as ﬂexible orchestration for the control of sampling. [Kairouz, 2019]</p><p id="85e9ce4d-dbf5-4b54-8373-9af569a5b4e0" class="">TFF is an open-source framework for machine learning and other computations on decentralized data. TFF has been developed to facilitate open research and experimentation with Federated Learning.</p><p id="664f2d08-a863-4aee-bc3f-8eba3a043150" class="">Amond TFF’s case studies we can find health care related case studies as well:</p><ul id="7856a850-4cc1-4d7e-9ad8-cd437bffa9cb" class="bulleted-list"><li>Sinovation Ventures: Disease classification and segmentation were performed on retinal Optical coherence tomography (OCT) images with the use of TFF.</li></ul><ul id="20c1a4b6-fd3e-459b-af12-3b1e389f47d2" class="bulleted-list"><li>GE Healthcare: With TFF GE healthcare is training a neural network to identify specific anatomy during brain magnetic resonance imaging (MRI) exams to help improve srove speed and reliability.</li></ul><p id="07f23d7d-a530-4568-acee-8dd6cdb53005" class=""><em><strong>Can be used for our purposes?</strong></em><em> Tensorflow is the other popular framework other than PyTorch. It is widely used in production, but PyTorch is slowly catching up. It not as easy to work with, and a lot more researchers seem to be shifting to PyTorch. For this reason, we will not use it in our project.</em></p><p id="91fd9e45-107c-4c20-a65f-93968fdc140c" class="">Technological aspects:</p><p id="f492c2f0-85f2-46d5-af02-24f0b7288717" class="">Pros:</p><ul id="ee18a7f9-6c09-4eb4-bffe-71f3b75d0bb5" class="bulleted-list"><li>Built on top of Tensorflow, which is a powerful Deep Learning framework.</li></ul><p id="45b9d129-8b15-40cb-825d-0f7b06c2fb0a" class="">Cons:</p><ul id="975ad5e8-1845-43f9-8389-7df2c15c8687" class="bulleted-list"><li>Since it is built on top of Tensorflow, it can only be used for Deep Learning algorithms. Only a few simple ML models are available (e.g. linear regression and classification).</li></ul><ul id="fb3622f4-b4bd-49da-9190-4c835af1326a" class="bulleted-list"><li>Not production ready, meaning that it can only simulate federated learning on a computer and cannot be run on a client-server system. (01/22/2021)</li></ul></div></p><p id="278e5848-43b8-4f95-988e-b37f64e0ecb6" class="">Later, TFF could be an option for using Deep Learning algorithms in federated way.</p><h3 id="e327c47b-824a-41ce-90e9-7ae1f07b3198" class="">IntelLabs - OpenFL</h3><p id="659edbe5-cbd2-42e8-bce4-74f9eaa7eb30" class="">https://github.com/IntelLabs/OpenFederatedLearning</p><p id="95a48f37-8ad9-4557-a204-3fee70aa5639" class="">Technological aspects:</p><p id="bf3f8063-2ae9-4aa6-a2c6-c4422b892357" class="">Pros:</p><ul id="7a25cd41-6520-4024-b108-fe53ad313aa8" class="bulleted-list"><li></li></ul><p id="51458e95-d88a-4b21-a076-30b27ec240b5" class="">Cons:</p><ul id="d0b68683-7e1c-46b5-b549-5e1f8333c030" class="bulleted-list"><li>Its development is in very early stage.</li></ul><ul id="1e8499bf-10fa-4500-a9ed-63ff16f83eb7" class="bulleted-list"><li>Since it is built on top of Tensorflow and PyTorch, it can only be used for Deep Learning algorithms.</li></ul><ul id="0b3b18fc-0933-4afb-a049-f6d18a69a9b9" class="bulleted-list"><li>Not production ready, it can only simulate federated learning on a computer and cannot be run on a client-server system. (01/22/2021)</li></ul><p id="1416c2e8-f711-4274-b027-2f49544c1f00" class="">IBM Federated Learning</p><p id="b21c7953-eced-4dc1-a65d-cdea17f053a0" class="">https://ibmfl.mybluemix.net/github</p><p id="2fd06488-3c94-45ed-b946-6719a980c9fd" class="">Technological aspects:</p><p id="bd7a690e-53e3-49a0-a7c6-95f9f5469d66" class="">Pros:</p><ul id="8ec29988-bf58-4d72-88be-aabf9da277e8" class="bulleted-list"><li>They are currently building the framework on top Tensorflow/Keras, PyTorch and Scikit-learn frameworks and libraries, so both simple ML models and Deep Learning models will be available.</li></ul><p id="21ced2a7-a9bf-4008-8665-b53d2f9e256c" class="">Cons:</p><ul id="40b3c61e-d038-4069-9284-ad07a03b0bd8" class="bulleted-list"><li>They have only a tech-preview of this framework, which is only available on IBM Cloud Pak for Data.</li></ul><h3 id="e906edf8-bc58-43f3-8956-fdb9aae533b5" class="">NVidia Clara Federated Learning</h3><p id="2acbd49d-5867-47d9-bbd4-ccbdd69e942f" class=""><a href="https://docs.nvidia.com/clara/tlt-mi/federated-learning/index.html">https://docs.nvidia.com/clara/tlt-mi/federated-learning/index.html</a></p><p id="0a8f1298-c469-407a-be98-4c3f213c5e5b" class="">Pros:</p><ul id="68f93151-5125-4255-bd67-860c8a54a249" class="bulleted-list"><li>It has a basic built-in authentication.</li></ul><p id="71aa275d-e924-4a30-88a8-2ffce32fffd6" class="">Cons:</p><ul id="d0469083-db84-4c62-bf4b-d22b0b808829" class="bulleted-list"><li>Clara provides a training framework to help accelerate deep learning training and inference only for medical imaging use cases</li></ul><ul id="5edbbcea-5c48-4d78-b5ea-782913a10b01" class="bulleted-list"><li>Many things need to be configured in json files, e.g. model’s loss function and optimizer, and even parameters of model training, such as number of local epochs, participating clients, etc., as well as image path and corresponding labels, hence it is very inflexible. <a href="https://docs.nvidia.com/clara/tlt-mi/nvmidl/model.html">https://docs.nvidia.com/clara/tlt-mi/nvmidl/model.html</a></li></ul><ul id="1bc9b1bb-fc0e-44d0-a411-056ca3f65dcb" class="bulleted-list"><li>At client side, a person has to start the client code to be able to take part in a training round in case the admin stopped it remotely.</li></ul><ul id="74f79df7-1343-4576-905d-49b634f35598" class="bulleted-list"><li>It uses synchronous gRPC communication between the server and clients.</li></ul><p id="5c160956-3a81-4bfd-a147-c4512e122348" class="">In summary, it’s inflexible due to the lots of json configuration and since it can be used only for medical imaging use cases, it’s not suitable for our purposes.</p></div></article></body></html>

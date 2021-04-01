@@ -1,0 +1,627 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Concept study</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="2cce6fe1-e9ab-47b8-90d6-302146ac77fe" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">📖</span></div><h1 class="page-title">Concept study</h1></header><div class="page-body"><blockquote id="90bbff8b-9daa-45ae-ad80-8444d560e877" class="">Concept study of the Federated Data Living Lab</blockquote><h1 id="eefd71a0-7b38-4a0b-872c-8e0d4e080636" class=""><strong>Contents</strong></h1><p id="ad5f2f03-a471-4a2b-b5d7-c5b7bee9dde8" class=""><a href="about:blank#executive-summary">Executive summary 3</a></p><p id="275d3c5f-4909-4662-97da-e4bc08e0422e" class=""><a href="about:blank#aim-of-the-study">1. Aim of the study 3</a></p><p id="a90954e2-3726-42e4-9cd0-5abb2e6f9e54" class=""><a href="about:blank#background">2. Background 3</a><div class="indented"><p id="68332387-a06e-4690-817e-a6cf6d7d25a2" class=""><a href="about:blank#term">2.1. Term 3</a></p><p id="6b79dfe2-a41c-445b-9fc1-66323d74823c" class=""><a href="about:blank#healthcare-and-federated-learning">2.2. Healthcare and federated learning 4</a></p><p id="1b805449-a7b6-436f-a512-c9b4ea155efd" class=""><a href="about:blank#novelty-of-federated-learning">2.1. Novelty of federated learning 5</a></p></div></p><p id="21043665-d6d3-4c64-a938-81eee73a61e6" class=""><a href="about:blank#problem-identification">3. Problem identification 5</a></p><p id="dc2083f9-f7ae-4435-b395-5ba89136da1a" class=""><a href="about:blank#solution">4. Solution 6</a></p><p id="69b25460-76ca-44b1-9536-3158f814f65d" class=""><a href="about:blank#feasibility">5. Feasibility 7</a><div class="indented"><p id="48b46b63-53ef-4839-a9ff-ba5b96237fc5" class=""><a href="about:blank#strengths-and-limitations-challenges">5.1. Strengths and limitations (challenges) 7</a><div class="indented"><p id="339b59e3-ca26-4b7f-9f0c-7ee87c9fb020" class=""><a href="about:blank#strengths">5.1.1. Strengths 7</a></p><p id="042bdab7-d7a2-4b94-a126-195b07e17c68" class=""><a href="about:blank#challenges">5.1.2. Challenges 8</a></p></div></p></div></p><p id="0e1d58ed-c0f8-4488-9f8c-a32a4ae7dc03" class=""><a href="about:blank#market-assessment">6. Market assessment 9</a><div class="indented"><p id="1625db8d-bffd-40a8-9969-af2b8278b634" class=""><a href="about:blank#alternatives-of-federated-learning">6.1. Alternatives of federated learning 9</a></p><p id="87f2aa28-9bc8-4a60-a541-5772d8e3e7e3" class=""><a href="about:blank#target-customers">6.2. Target customers 9</a></p></div></p><p id="4da35fe6-cd27-4cde-959e-c94081250eee" class=""><a href="about:blank#current-market-solutions">7. Current market solutions 9</a></p><p id="8cdbab75-a287-4c05-a089-814ce88e1cab" class=""><a href="about:blank#preliminary-implementation-plan">8. Preliminary implementation plan 12</a><div class="indented"><p id="ffa7e2fd-549e-42a2-8591-760022e34b02" class=""><a href="about:blank#schedule">8.1. Schedule 12</a></p><p id="d8f382a5-d07e-4011-8c75-78b4ec6a5c29" class=""><a href="about:blank#resources-required">8.2. Resources required 12</a><div class="indented"><p id="10bee3e2-8b57-4d61-b5ce-00cea68a41e1" class=""><a href="about:blank#financial-resource">8.2.1. Financial resource 12</a></p><p id="74e0622c-bf12-48cb-8436-441b3363cc9f" class=""><a href="about:blank#human-resources">8.2.2. Human resources 12</a></p><p id="82864205-00f2-42d4-8920-bb81398cafd3" class=""><a href="about:blank#material-resources">8.2.3. Material resources 12</a></p></div></p></div></p><p id="c6b289f1-2b5f-4778-b6b4-369723767870" class=""><a href="about:blank#summary-and-recommendations">9. Summary and recommendations 12</a></p><p id="cc57f165-a959-4d1f-be85-54aa53daebfa" class=""><a href="about:blank#reference">10. Reference 13</a><div class="indented"><p id="8b56ccca-439b-453b-9a44-ddb86b80e82a" class=""><a href="about:blank#links-articles">10.1. Links, articles 13</a></p><p id="fb83c218-50df-4666-92de-7a4cee6a32c8" class=""><a href="about:blank#studies">10.2. Studies 13</a></p></div></p><p id="e8befb9e-9881-4acb-8ce0-1810eee76a86" class="">Phase I (M1-3): High level definition of the Federated Data Living Lab concept.</p><p id="2471f568-4a9e-4176-a6eb-6446dbe85b4e" class="">In this phase a roadmap study will be generated detailing the current market solutions, feasibility of the solution, including challenges from machine learning/data engineering, data security and privacy related regulations perspective, as well as preliminary implementation plan and sustainability of the solution.</p><h1 id="a55be773-6d86-4310-a6b4-61cb3d9a4e1d" class="">Executive summary</h1><h1 id="f15d0a2c-c348-46be-bf85-32b5cccf8a2d" class="">Aim of the study</h1><h1 id="242f0183-5a99-43bb-8b92-ba0132eeef18" class="">Background</h1><h2 id="12509a71-1d7c-49b1-a447-a8d574fea657" class="">Term</h2><p id="fddde60d-65cf-4e38-a7a8-e81ac7e0ec37" class="">In 2017, H. Brendan McMahan, et al. published Communication-Efficient Learning of Deep Networks from Decentralized Data. This was the first paper on federated learning. This paper – published by Google reserachers – was about a new technique which may improve search suggestions on Gboard (digital keyboard on Android phones). In this paper federated learning was determined as the following:</p><p id="6c92151e-23b7-4757-b447-521d8cdcffc3" class="">“We investigate a learning technique that allows users to collectively reap the benefits of shared models trained from this rich data, without the need to centrally store it. <em><strong>We term our approach Federated Learning, since the learning task is solved by a loose federation of participating devices (which we refer to as clients) which are coordinated by a central server</strong></em>. Each client has a local training dataset which is never uploaded to the server. Instead, each client computes an update to the current global model maintained by the server, and only this update is communicated. This is a direct application of the principle of focused collection or data minimization proposed by the 2012 White House report on privacy of consumer data. Since these updates are specific to improving the current model, there is no reason to store them once they have been applied.” [McMahan, 2017]</p><p id="5900269f-d75d-4fcf-89c4-b2ba1ce23c29" class="">The research scientists of the very first federated learning use case described the method as the following: <em>“When Gboard shows a suggested query, your phone locally stores information about the current context and whether you clicked the suggestion. Federated Learning processes that history on-device to suggest improvements to the next iteration of Gboard’s query suggestion model.”</em></p><p id="5d8b9f30-f1cf-47f5-957f-91dee1a3ec73" class="">The term of federated learning was firstly applied to edge devices and applications. A paper published in 2019 introduced a new term of federated learning. This is a boarder definition of federated learning which considers not just “cross-device” but “cross-silo” settings as well. According to this definition <em><strong>federated learning is a machine learning setting where multiple entities (clients) collaborate in solving a machine learning problem, under the coordination of a central server or service provider. Each client’s raw data is stored locally and not exchanged or transferred; instead, focused updates intended for immediate aggregation are used to achieve the learning objective.</strong></em> [Kairouz, 2019]</p><h2 id="fec75767-0c34-4f0f-85e4-47a74914f30d" class="">Healthcare and federated learning</h2><p id="290dde32-8473-44bb-897e-aa809ffbd830" class="">The first federated learning technique, Gboard is just one of the many potential applications of federated learning.</p><p id="eb682e82-d625-410c-8383-8d06e6885f28" class="">Federated learning can have a very big impact in real-world health data analysis and due to it in healthcare as well. As the volume, variety, velocity and veracity (the four V’s) of the clinical data grow, there is greater need for efficient methods to handle these data. Past researches mainly focused on centralized algorithm, which assume a central database which store all data from different entities. This method isn’t effective if there isn’t one centralised dataset. In the case of healthcare date this is the main issue with conventional machine learning approach. The lack of centralized dataset is a very crucial aspect in the case of healthcare data where many entities own many different data. [Brismi, 2018]</p><p id="29857862-8e39-428b-87d9-9d8f7e641726" class="">Privacy is one of the leading aspects in medical institutions. If an algorithm could train on data without violating privacy it would be a very big step in health data analysis. In the case of federated learning an algorithm is trained to learn on private data, stored in different servers and devices. The algorithm is sent to the participating institutions where it can learn on in-house data. After it the trained algorithm pooled back to a central server, where the aggregation of the different algorithms is happening. The created composite algorithm than delivered back to the institutions for more training, and then go back to the central server for more aggregation. This cyclic process continues until an optimal aggregated model is achieved. In the case of this process in-house data stay private and don’t come out from their birth place.</p><p id="026d1512-4fbf-4308-93ff-1174e4ee5aef" class="">Federated learning has a very big potential in health care, especially in Europe. General Data Protection Regulation (GDPR) law went into effect on May 25, 2018. This data privacy and security law determined very tighten rules in the case of privacy, especially in health care. This is the “thoughes privacy and security law in the world”, which “imploses obligatons onto organizations anywhere, so long as they target or collect data related to people in the EU”. The GDPR law protect privacy laws but in the same time inhibits the effective use of healthcare data.</p><p id="e8b12ea9-4f96-4339-a710-b71add0aa90a" class="">There are many valuable datasets around the world (e.g. data housed in hospitals, healthcare payer databases, data collected by the pharmaceutical industry). These datasets have their own characteristics which makes it difficult to connect them. For conventional machine learning is hard to find a proper dataset to train the model, because datasets are diverse and owned by different institutions and companies. It is possible that – like in the case of conventional machine learning – a model trained on a dataset can’t be generalized to other datasets. The other problem is that healthcare data is in constant change, so models have to be trained again and again.</p><p id="da805f58-23cb-472f-8a22-adcc477b8a35" class="">To the contribution of healthcare innovation and to improve the quality of healthcare the effective use of healthcare data is essential. Different companies and medical institutions - who owns medical data - have to optimize the use of their in-house data not just for the big common purpose, but because of their own benefits, to help their own developments and increase their incomes. Due to it they have to licence their organization’ clinical data to relevant researchers.</p><p id="3fb88fbd-b678-4516-9180-6862658aa294" class="">Up till now globally the aim about medical data was to acquiring more and more information, more and more data. Now we have to become able to use this data and makes data virtually accessible. For this federated learning can be the solution. Private companies and state-owned institutions have to unlock their data and with this encourage data-driven innovations.</p><p id="70f46cc1-9921-42cb-bfe8-d03b9cf1ccec" class="">The effective use of healthcare data can help to design healthcare policies, detect disease causes, provide medical solutions, increase cost-effectiveness and finally, improve the quality of care. [Brismi, 2018]</p><h2 id="c2df8dec-dad6-41f3-a094-ce2cbe96996b" class="">Novelty of federated learning</h2><p id="eb09861f-05e0-4fff-b9af-409f7292a60b" class="">Briefly federated learning brings the code to the data, despite conventional machine learning which brings the data to the code. In the case of conventional machine learning the data used to train the models are centralized and data are loaded from a centralized storage (or local disk or cloud or etc.) to train the model.</p><p id="078f2228-3e26-4039-8c28-7c114e597102" class="">Traditional machine learning uses a centralized approach. The best example for traditional machine learning can be Google, Facebook or Amazon. This companies collecting giant amount of data, store these data in their own datacenters, and use machine learning techniques on them. A number of questions arise in connection with this method, especially in the case of privacy. Compared to the centralized method, federated learning is a decentralized approach, which enables to keep all the private data in the origin place.</p><p id="48310a7c-bf7e-4758-af0b-2039c03d5500" class="">Healthcare data have three main challenges which can be solved by the use of federated learning:</p><ol id="ec33d5b4-f683-424d-8008-04f645214b06" class="numbered-list" start="1"><li>Data housed in different locations.</li></ol><ol id="4dd5427b-ab5b-4856-8bca-3b1b8e8de78f" class="numbered-list" start="2"><li>The availability and diversity of data is growing (scalable framework is needed).</li></ol><ol id="8f377ba1-ff24-48f0-9c27-7f34b2ae9619" class="numbered-list" start="3"><li>Aggregating data to a centralized database is impossible (diversity and privacy concerns).</li></ol><h1 id="d70a1943-f0f2-4585-a916-cf60bf582b0c" class="">Problem identification</h1><p id="9202b870-8e2b-492b-8d95-52a721805d0c" class="">When it comes to innovation and digital health care start-ups it means the need of vast amount of data and model validation. An early phase digital health care start-up can either have a pre-trained model or only an innovative idea, multi-centre health data is indispensable both for model training and for model validation, especially due to the bias introduced to collected data by different healthcare systems and population characteristics. Currently, early phase start-ups face a huge challenge when it comes to accessing high-quality real-world healthcare data: it is often siloed and distributed or access is restricted due to privacy issues, strict and complex local laws and regulations. Currently it is a time and money consuming process, without the ability to perform analyses across distributed, high quality data the industry is stalled, impeding critical progress in precision medicine and life science digital start-ups.</p><h1 id="c33e6e41-387c-4ce4-b870-1a0e41d909d1" class="">Solution</h1><p id="07c3e8b8-67da-409f-8737-44a5ca3f08dd" class="">This initiative aims to create the concept of the InnoHealth Data Living Lab that facilitates the access of start-ups (and other businesses developing new solutions) to health data sources to train and validate their models so they can develop market-ready products with high added value and a high probability of success. Recent achievements in privacy-preserving federated machine learning enables to run machine learning algorithms on sensitive patients’ and health care data without the need to share or move the data from its source, while insights can be accessed at a central place. Services for accessing the federated resources and running analyses on data can be offered for start-ups (and other businesses developing new solutions) increasing the accessibility, cost-effectiveness, and reproducibility of data-intensive workloads.</p><figure id="cd6700cb-4ea9-4903-85d4-16fe905f09b8" class="image"><a href="Concept%20study%202cce6fe1e9ab47b890d6302146ac77fe/image1.png"><img style="width:618px" src="Concept%20study%202cce6fe1e9ab47b890d6302146ac77fe/image1.png"/></a></figure><p id="6cb7dd3b-3b19-49f4-b341-95adaa626048" class="">Current closest solution is the EMIF project that created an online data catalogue for initiating bilateral conversation among health data source providers and consumers, however this project ended in 2017, currently is not maintained and still assume a long process from finding a partner and accepting ethical and privacy frames of the collaboration.</p><p id="c7f80dfa-26cf-4933-9f5c-9281a5799ff1" class="">The uniqueness of Data Living Lab will be to provide fast and secure access to data sources in a privacy-by-design manner. Similarly to Airbnb, Data Living Lab could offer data providers a business model while democratizing insight from health data.</p><p id="9d08530d-c831-460c-9bea-1500fbeb87f3" class="">Data Living Lab will initially concentrate on digital health care start-ups as target customers to enable and accelerate their development. However, in long term such services will be useful for research purposes as well, which significantly broadens the customer segment: i) can aid EIT Health projects to achieve their goals, ii) can be used by independent research groups who aim to strengthen their findings and even iii) pharma companies and other businesses are potential customers. From data provider side innovative incentives will be applied to motivate them to join the network, for example pricing based on access to data source and authorship schemes in potential publication based on provided data.</p><p id="b1a23f0e-b4e5-4591-a3e9-928bc5fbd8ef" class="">The initiative creates a strong basis for a future innovative business plan creating a service for the EIT Health Living Lab initiative and can potentially evolve to an EU-wide service connecting healthcare data and promoting AI innovation and start-up creation by enabling faster and more cost-effective research and validation.</p><p id="eeddfb48-6209-4fa0-be0c-31ac8625cd34" class="">The initiative will be led by E-Group. E-Group is highly motivated to bring to market innovative solutions improving health innovation and AI. E-Group specialised in IT solutions focusing in the area of “data&amp;trust”. The company has several years’ of experience in building GDPR proof health data infrastructures at scale and have a long track record in creating and working with startups.</p><h1 id="20aee010-f2af-4a4f-8bac-bdf8dc77c9e3" class="">Feasibility</h1><h2 id="f84692e5-5992-426b-92d5-e32726cd7ee9" class="">Strengths and limitations (challenges)</h2><h3 id="9e405b7b-9ba9-48a9-a62b-abccca17c868" class="">Strengths</h3><p id="d6ae9e91-9d20-4a2c-b7b5-644aa81f4eba" class=""><strong>Privacy</strong></p><p id="cc378be8-0083-46aa-8486-be9244c6bc9a" class="">In healthcare, data are very sensitive and must be protected accordingly. With federated learning, there is no need to move data away from the owner of the data. With use of federated learning we can be totally compliant with the GDPR. With the use of federated learning it is not needed to change raw data, just the model updates. Privacy protection with federated learning exceed the ability of current commercially available machine learning models. [Rieke, 2020]</p><p id="f671b907-69a1-45f2-bdc0-0bbb28437ae7" class=""><strong>Security and accessibility</strong></p><p id="7bf6a7e5-4ce8-4f91-8008-d8bc669aaba7" class="">Transferring medical data from healthcare organizations or from healthcare payers’ databases can be a very slow process and security issues can arise. For example, disposing of data after somebody finished working with it, is a hardly controllable problem. Federated learning provides secure and fast access to data. Those who have authorized access to the data can work with it securely and effectively, no matter the distance between the data and the user.</p><p id="d2f8c7dd-2cf6-4f34-a8b9-7f39b98e8a41" class=""><strong>Integration of data, data heterogeneity</strong></p><p id="61dc9096-e3ed-4a5f-a976-0906e7a6b035" class="">In the data analysis process one of the core assumptions is that the data is independent and identically distributed (IID) across participants. [Rieke, 2020] Healthcare data is particularly diverse and hardly comparable, the IID assumption isn’t met in many cases. Federated learning can seamlessly integrate databases and structured data. Federated learning training on medical non-IID data is possible. [Rieke, 2020] With federated learning we are able to connect isolated institutions. [Xu, 2020]</p><p id="3b3e296b-9163-4323-bcb8-b4bf0d8ced1f" class="">The data sources heterogeneity is fundamental to training models which are able to accurately replicate real-world setting. Federated learning makes it possible to build machine learning models from heterogenous models.</p><p id="cb3258b4-f6a8-4d3a-86c3-a09c6bf6be6f" class=""><strong>Correlation of datasets</strong></p><p id="e57b3619-b4d8-4190-88a0-cb8d4d873393" class="">Local datasets are diverse, so correlate different datasets with keeping privacy is an important issue. Federated learning can describe the pattern of a groups without talking about specific individuals.</p><h3 id="f7ccbe18-9442-4d09-be38-9a4077ec5c90" class="">Challenges</h3><p id="591f7c28-1414-4de2-857c-cea7f26d4e7d" class=""><strong>Infrastructure</strong></p><ul id="c425a4e5-45a5-443e-83fa-8698b1506ef4" class="bulleted-list"><li><strong>Internet connection:</strong> In a global view it can be a problem that some institution – mainly government-maintained institutions – haven’t got proper Internet connectivity and during the learning process the client fails to respond.</li></ul><ul id="b818cb51-8858-4c49-b0bc-dab356769aca" class="bulleted-list"><li><strong>Staff:</strong> Federal learning needs personal resources to train machine-learning models.</li></ul><ul id="a0013738-cddb-4251-a8c1-357a340005ae" class="bulleted-list"><li><strong>Data collection:</strong> Data collection needs to be standardized across different institutions.</li></ul><ul id="1ea736b9-4ba2-4235-94d2-8dfa192ca383" class="bulleted-list"><li><strong>Limited resources of clients:</strong> Clients maybe poorly equipped, including storage and computer power. It is important that federated learning process starts only if the device is available.</li></ul><p id="ff3b3032-a25f-4724-8782-8ea675e54d30" class="">‘Split learning’ can be a solution. In this case hospitals train different model to half way, and then the models are combined and the training is continuing in the central server.</p><p id="288fedff-f7ff-4a08-a30c-ad657e13edc1" class=""><strong>Lockstep execution</strong></p><p id="6e2a4a86-ca6c-42b1-a7ac-edf28eb3df9e" class="">Every round proceeds in a stepwise fashion. As the number of participating clients grows, it becomes increasingly important that the implementation is robust across all points of failure.</p><p id="789a7228-b9d9-420d-b7ea-d81f6901d117" class=""><strong>Different data distributions</strong></p><p id="fb184a55-5fe9-4e15-801c-1d846d02874a" class="">Data can vary widely between clients. As mentioned above federeated learining training can handle different datasets but the best global solution may be not the optimal final local solution. The definition of model training optimality should be agreed by all participants before training. [Rieke, 2020]</p><p id="5db18330-2d50-4154-bb2f-4452993d37d0" class=""><strong>Security</strong></p><p id="3145f172-a5fd-4962-a7aa-17cfb42e7427" class="">Inference Attack can hurt clients and the central server as well. These attacks aim can be to reveal characteristic of the original data. At the same time model poisoning can be a danger as well.</p><p id="6f72ecb7-2367-4045-be91-9cfd9177b19a" class="">We can distinguish two types of federated learning models: Trusted and Non-trusted. In a trusted-model participants are bounded by a collaboration agreement, which reduces the risk of the participants attempt to extract sensitive information or corrupt the model. If the scale of the system is wide, it is impractical the establish a consortium and a collaboration agreement. In this case security measures have to be implemented to reduce the risk of internal attacks. [Rieke, 2020]</p><p id="3903d808-175e-4694-ba81-312a4af3e472" class=""><strong>Practitioners’ reluctance</strong></p><p id="70c49f35-c7ce-4787-a1af-ce716eebc4c3" class="">The healthcare AI market will unprecedentedly increasing, but the reluctance of practitioners can held back the growth. The fear of AI’s impact on healthcare employments and comprehensively on healthcare, the lack of skilled employees, the not up-to-date regulatory guidelines can negatively affect the growth of the market.</p><p id="70e200df-3508-4495-ab85-454fdb2cbf81" class=""><strong>Access to data</strong></p><p id="d7636972-aa7a-4c68-adc2-89f1dabdaa14" class="">Access to databases is one of the biggest limitation of federated learning.</p><p id="f956cbbb-2bb8-4893-8c5c-e20b25ebef2b" class=""><strong>Information leakage</strong></p><p id="aa4cbf6f-5f8b-4c1d-836e-24de8a6c93db" class="">By definition in the case of federated learning to share private data is note needed, but it is true that with federated learning training process is exposed to multiple parties. As a result, the risk of information leakage via reverse-engineering increased. Contermeasuers, such as limiting the granularity of the shared model updates and to add specific noise to ensure differential privacy may be needed. [Rieke, 2020]</p><h1 id="4ca6237a-a191-41ae-bfbb-05a62b4969e2" class="">Market assessment</h1><p id="5a84f1a2-21d6-43b2-aaad-e7e7a06305a8" class="">According to an article published in 2019, three separate market reports agree that the healthcare artificial intelligence market will increase at a compound annual growth rate (CAGR) of between 47 percent and 50 percent over the next few years. The following reports and predicts are available:</p><ul id="8f1fcd2a-a038-425c-9ca8-68ba221cee71" class="bulleted-list"><li>Markets and Markets: $36.1 billion by 2025; CAGR 50,2%;</li></ul><ul id="25e6eb99-fb1a-4719-b203-6d7375c55bac" class="bulleted-list"><li>IT Intelligence Markets: CAGR more than 47%;</li></ul><ul id="41dbf248-8316-41cd-8013-36e043a0e87c" class="bulleted-list"><li>Energias Market Research’s: $20 billion by 2024; CAGR 48,7%.</li></ul><p id="7e330543-c471-4d06-b490-4fb8fd7f415e" class="">The reports mention the following vendor powerhouses in the healthcare AI market: AWS, Google, General Vision, GE Healthcare, IBM, Intel, Microsoft, Nvidia, Siemens Healthineers, and Philips.</p><h2 id="b5eca882-8814-4f0f-bd00-aa1e36815f6a" class="">Alternatives of federated learning</h2><ul id="63b65914-a794-42b5-86a8-32bd964c67d0" class="bulleted-list"><li>homomorphic encryption</li></ul><p id="6923542b-418f-4275-9217-ada1ac557b20" class="">In HE, compute is performed on encrypted data. Therefore, non-trusted parties can perform compute without ever learning the contents of the data.</p><p id="b23dc6ac-3ecb-470c-a5d1-918231339c95" class=""><em>Challenge</em>: HE is still too computationally intensive to be used in most applications.</p><p id="b05eda0d-ceac-4ca5-97c1-536f4d9b3763" class=""><em>Towards solving</em>: Speed will continue to improve with time due to better algorithms, faster chips, and dedicated chips.</p><ul id="328ddd19-7031-4bef-86d3-acfef303acdc" class="bulleted-list"><li>multiparty computation</li></ul><p id="cb6d47cc-d09f-4116-8692-19f814bad488" class="">In MPC, the compute task is broken into small sub-tasks; a different party performs each sub-task; and the results are merged.</p><p id="7341fa9b-18dd-45b0-996d-cb46d209ed4f" class=""><em>Challenge</em>: bandwidth can be a bottleneck because it requires a lot of communication between the parties.</p><p id="0143c726-344b-4cab-8763-9ecc8c147a23" class=""><em>Towards solving</em>: researchers are working to reduce bandwidth needs.</p><ul id="fda0cd6f-a0cd-4777-97de-714b2a445112" class="bulleted-list"><li>blockchain, hyper-ledge</li></ul><p id="f2557be6-c352-46d8-b8bf-1931e7387487" class="">Table 1: Typical characteristics of federated learning settings vs. distributed learning in the datacentre [Kairouz, 2019]</p><h2 id="3736fe05-569f-4234-b988-fa43f6fc8b13" class="">Target customers</h2><p id="7b227dc6-eacc-4da8-98db-9a41be97d621" class="">Start-ups</p><h1 id="a15c2078-2815-46b5-bc96-0cc396b909a1" class="">Current market solutions</h1><p id="d8828d94-2611-4e3a-87d8-ea84c00f8759" class="">The growing demand for federated learning technology has resulted in a number of tools and frameworks becoming available. These include TensorFlow Federated [38], Federated AI Technology Enabler [34], PySyft [342], Leaf [35], PaddleFL [36] and Clara Training Framework [33]; more details in Appendix A. Commercial data platforms incorporating federated learning are indevelopment from established technology companies as well as smaller start-ups. [Kairouz, 2019] + 103. oldal</p><ul id="fee0eaec-6860-4d12-880b-ec1581744f4f" class="bulleted-list"><li>Leaf</li></ul><p id="b286c490-2735-4fef-be4d-8d54bc918ef8" class=""><a href="https://leaf.cmu.edu/">https://leaf.cmu.edu/</a></p><p id="163c4751-a9e4-4d81-8bd8-4a1e84b2f641" class="">Leaf provides multiple datasets, as well as simulation and evaluation capabilities. [Kairouz, 2019]</p><ul id="abb2e970-128c-4bce-9310-23cfbded1415" class="bulleted-list"><li>PaddleFL</li></ul><p id="68ef2046-f56c-4fdd-90cb-d98ee7155bde" class=""><a href="https://paddlefl.readthedocs.io/en/latest/introduction.html">https://paddlefl.readthedocs.io/en/latest/introduction.html</a></p><p id="ebbe2741-2a53-4aa1-a746-cb74f34e3357" class="">PaddleFL is an open source federated learning framework based on PaddlePaddle. In PaddleFL, several federated learning strategies and training strategies are provided with application demonstrations. [Kairouz, 2019]</p><ul id="bf6055bf-2d19-41e5-a014-3a0dfd8efce5" class="bulleted-list"><li>Clara Training Framework</li></ul><p id="1141d4dc-198b-4b11-98f3-8ad67dcfc560" class=""><a href="https://docs.nvidia.com/clara/tlt-mi/clara-train-sdk-v2.0/index.html">https://docs.nvidia.com/clara/tlt-mi/clara-train-sdk-v2.0/index.html</a></p><p id="d7c3286c-d39e-4ae6-8e76-57ee4c6ade97" class="">ClaraTraining Framework includes the support of cross silo federated learning based on a server-client approach with data privacy protection. [Kairouz, 2019]</p><ul id="c96444f3-8d59-4051-961a-ce635fbe00fd" class="bulleted-list"><li>Federated AI Technology Enabler</li></ul><p id="6f390dac-ef31-4eeb-ba57-e9cbadf65229" class=""><a href="https://www.fedai.org/">https://www.fedai.org/</a></p><p id="2311e51c-c639-4c2b-a9a3-6f6c82efbeab" class="">FATE (Federated AI Technology Enabler) is an open-source project intended to provide a secure computing framework to support the federated AI ecosystem. [Kairouz, 2019]</p><ul id="0b28e108-c888-4ce5-bfcb-71a3b1e7514c" class="bulleted-list"><li>TensorFlow Federated</li></ul><p id="d67e3077-daea-4dd6-ab3d-1b6973448882" class=""><a href="https://www.tensorflow.org/federated">https://www.tensorflow.org/federated</a></p><p id="feece3ed-a269-442d-b2b2-2daf02a71d5b" class="">TensorFlow Federated speciﬁcally targets research use cases, providing large-scale simulation capabilities as well as ﬂexible orchestration for the control of sampling. [Kairouz, 2019]</p><ul id="3f974bee-9517-466e-a8cb-aea0669ba2b4" class="bulleted-list"><li>PySyft (OpenMined)</li></ul><p id="abf9f5a3-f8c8-4230-96d3-ff341b167de3" class=""><a href="https://www.openmined.org/">https://www.openmined.org/</a></p><p id="430543b6-6e88-49a1-a77e-85575bc2a087" class=""><a href="https://www.learnopencv.com/federated-learning-using-pytorch-and-pysyft/">https://www.learnopencv.com/federated-learning-using-pytorch-and-pysyft/</a></p><p id="be9c0d04-1435-4144-9290-f2fd4c232f82" class="">PySyft is a Python library for secure, private Deep Learning. PySyft decouples private data from model training, using federated learning, differential privacy, and multi-party computation (MPC) within PyTorch. [Kairouz, 2019]</p><ul id="8e6d5f27-e4ab-49ac-8827-670f56466674" class="bulleted-list"><li>BRATS</li></ul><p id="ddffdc09-81b2-434b-9d84-96876c843f69" class=""><a href="https://builtin.com/machine-learning/federated-learning">https://builtin.com/machine-learning/federated-learning</a></p><ul id="08b3ee85-57dc-4760-8bd7-98da352578ad" class="bulleted-list"><li>Owkin</li></ul><p id="fe77e41a-d8b3-4e34-a86c-2941a376b57d" class="">Owkin is using federated learning to predict the resistance of cancer patients to certain treatment and drugs. The startup is collaborating with U.S. and European cancer centers to use their data for its models. The company is developing a new model that predicts survival odds for a rare type of cancer based on a patient’s pathology images.</p><p id="2e5fb596-f6ea-41fa-8499-f6a81d9c5ac8" class="">“The biggest barrier in oncology today is knowledge. It’s really amazing that we now have the power to extract that knowledge and make medical breakthrough discoveries,” Owkin Founder Thomas Clozel told MIT Technology Review.</p><p id="52cfd606-d3af-4db1-a838-8874fe1be8f7" class="">&quot;In December of 2019, at a radiology conference in Chicago, NVIDIA unveiled a new feature for Clara SDK. This software development kit, created expressly for the healthcare field, helps medical institutions make and deploy machine learning models with “a set of tools and libraries and examples,” Flores said.The new tool was Clara Federated Learning — infrastructure that allowed medical institutions to collaborate on machine learning projects without sharing patient data.NVIDIA’s not the only tech company embracing federated learning. Another medical AI company, Owkin, has rolled out a software stack for federated learning called Owkin Connect, which integrates with NVIDIA’s Clara. Meanwhile, at least two general-purpose federated learning frameworks have also rolled out recently: Google’s TensorFlow Federated and the open-source PySyft.The concept of federated learning, though, dates back to years earlier. Like many innovations, it was born at Google.&quot;</p><figure id="5dfcedf3-3dad-4cc9-b287-1388316796ab" class="image"><a href="Concept%20study%202cce6fe1e9ab47b890d6302146ac77fe/image2.png"><img style="width:700px" src="Concept%20study%202cce6fe1e9ab47b890d6302146ac77fe/image2.png"/></a></figure><p id="aabddf8d-4a68-4bd5-b8e1-27815b2f8d7e" class="">„Current closest solution is the EMIF project that created an online data catalogue for initiating bilateral conversation among health data source providers and consumers, however this project ended in 2017, currently is not maintained and still assume a long process from finding a partner and accepting ethical and privacy frames of the collaboration.“ [RIS_Implementation_Plan]</p><h1 id="e6831514-2b15-4e61-8fbb-61a9184a1924" class="">Preliminary implementation plan</h1><h2 id="5132a246-9d90-4615-9357-f466d51bc442" class="">Schedule</h2><h2 id="58383f2b-fa11-4da5-8f9a-1e8c90a76a32" class="">Resources required</h2><h3 id="90cf34d6-db0a-408b-9781-87092eae77b2" class="">Financial resource</h3><h3 id="8b71260d-18a5-479c-bf38-1d7fc235a986" class="">Human resources</h3><h3 id="e641165c-04c1-4a98-bedf-736f9b52941f" class="">Material resources</h3><h1 id="b44843b6-d473-4e12-a838-8692611e2269" class="">Summary and recommendations</h1><h1 id="bcbd9f3e-5e77-4289-acc2-ed60013e54ce" class="">Reference</h1><h2 id="a15c9b48-d5af-4a09-9d85-c7b029d15d18" class="">Links, articles</h2><p id="7ef8c14d-e6e7-42fa-bf4e-789c1faf10cd" class=""><a href="https://www.nature.com/articles/s42256-020-0186-1">https://www.nature.com/articles/s42256-020-0186-1</a></p><p id="d2023d22-28c5-470c-9811-2c44a3e38944" class=""><a href="https://ai.googleblog.com/2017/04/federated-learning-collaborative.html">https://ai.googleblog.com/2017/04/federated-learning-collaborative.html</a></p><p id="0311104e-96f9-40d7-8219-86e70a1b2b9c" class=""><a href="https://www.nature.com/articles/s41746-020-00323-1">https://www.nature.com/articles/s41746-020-00323-1</a></p><p id="ff83f20d-ab2f-4531-89fd-acdde12e5177" class=""><a href="https://healthtechmagazine.net/article/2020/08/how-federated-learning-can-help-healthcare-cios">https://healthtechmagazine.net/article/2020/08/how-federated-learning-can-help-healthcare-cios</a></p><p id="9591767a-6ab1-4b31-80bb-9a0091bb38c3" class=""><a href="https://arxiv.org/pdf/1911.06270.pdf">https://arxiv.org/pdf/1911.06270.pdf</a></p><p id="8f66aefe-a082-48d6-9ccf-cb5b998dbe62" class=""><a href="https://builtin.com/machine-learning/federated-learning">https://builtin.com/machine-learning/federated-learning</a></p><p id="57fe8a7b-b284-4b82-b07f-3958aa2b3131" class=""><a href="http://proceedings.mlr.press/v54/mcmahan17a/mcmahan17a.pdf">http://proceedings.mlr.press/v54/mcmahan17a/mcmahan17a.pdf</a></p><p id="626dc07b-cfc9-46a4-8809-2264e8afbd0f" class=""><a href="https://medium.com/deeptek/federated-learning-for-medical-ai-65d0daeafe8b">https://medium.com/deeptek/federated-learning-for-medical-ai-65d0daeafe8b</a></p><p id="79caf3e7-34ea-44da-a01f-9cfb557d8e0c" class=""><a href="https://hitinfrastructure.com/news/federated-learning-balances-machine-learning-with-patient-privacy">https://hitinfrastructure.com/news/federated-learning-balances-machine-learning-with-patient-privacy</a></p><p id="02299adc-0df7-486b-914c-2c9a79205914" class=""><a href="https://owkin.com/federated-learning/heterogeneity-in-healthcare/">https://owkin.com/federated-learning/heterogeneity-in-healthcare/</a></p><p id="3037e124-c17d-47f3-ac78-29e97c0236e3" class=""><a href="https://hitinfrastructure.com/news/providers-need-to-embrace-healthcare-artificial-intelligence">https://hitinfrastructure.com/news/providers-need-to-embrace-healthcare-artificial-intelligence</a></p><p id="236cb1e1-0a68-49c0-a6a3-f7117504c6cf" class=""><a href="https://hitinfrastructure.com/news/reports-healthcare-artificial-intelligence-market-cagr-of-47-50">https://hitinfrastructure.com/news/reports-healthcare-artificial-intelligence-market-cagr-of-47-50</a></p><p id="85bccd89-422e-4d95-9c46-f89455083076" class=""><a href="https://www.nanalyze.com/2020/01/federated-learning-explained/">https://www.nanalyze.com/2020/01/federated-learning-explained/</a></p><h2 id="1cc3cdae-4fc6-4003-88ca-2746e1b349db" class="">Studies</h2><p id="0c0ab83e-e871-4143-b926-aecaa923e667" class="">Federated learning for medical imaging, 2019. URL https://www.intel.ai/ federated-learning-for-medical-imaging/. Retrieved Aug 2019.</p><p id="ccf725e6-aa63-44fe-b1d1-0a474491499f" class="">George J Annas. HIPAA regulations-a new era of medical-record privacy? New England Journal of Medicine, 348(15):1486–1490, 2003.</p><p id="bc16f940-4728-494d-b362-6ba6710309af" class="">Theodora S Brisimi, Ruidi Chen, Theofanie Mela, Alex Olshevsky, Ioannis Ch Paschalidis, and Wei Shi. Federated learning of predictive models from federated electronic health records. International journal of medical informatics, 112:59–67, 2018.</p><p id="7c3790ca-113b-4de3-8466-0a418940cf33" class="">Ken Chang, Niranjan Balachandar, Carson Lam, Darvin Yi, James Brown, Andrew Beers, Bruce Rosen, Daniel L Rubin, and Jayashree Kalpathy-Cramer. Distributed deep learning networks among institutions for medical imaging. Journal of the American Medical Informatics Association, 25(8):945–954, 2018</p><p id="bd265a47-a77c-42c9-a0cd-0930796a9e15" class="">Jing Ma, Qiuchen Zhang, Jian Lou, Joyce Ho, Li Xiong, and Xiaoqian Jiang. Privacy-preserving tensor factorization for collaborative health data analysis. In ACM CIKM, volume 2, 2019.</p><p id="1e7286cc-fa2d-4cbe-b20d-53c88e53b2ea" class="">Praneeth Vepakomma, Otkrist Gupta, Tristan Swedish, and Ramesh Raskar. Split learning for health: Distributed deep learning without sharing raw patient data. arXiv preprint arXiv:1812.00564, 2018.</p><p id="a3e1e447-8ace-4f7d-aed6-37c33f85491a" class="">Praneeth Vepakomma, Otkrist Gupta, Abhimanyu Dubey, and Ramesh Raskar. Reducing leakage indistributed deep learning for sensitive health data. arXiv preprint arXiv:1812.00564, 2019.</p><p id="9d5aee7c-0ab1-4fba-a92d-0486428d612f" class="">Towards federated learning at scale: system design, Keith Bonawitz, Hubert Eichner and al., 2019</p><p id="8a81c360-b88c-42fb-b711-61737e70ddd2" class=""><em><strong>Peter Kairouz, H. Brendan Mcmahan, Brendan Avent, Aurélien Bellet, Mehdi Bennis, etal. Advances and Open Problems in Federated Learning. 2019. hal-02406503</strong></em></p><p id="6265ef7b-376d-4c30-80c9-45349091c958" class="">Rieke, N. et al. The future of digital health with federated learning. Preprint at <a href="https://arxiv.org/abs/2003.08119">https://arxiv.org/abs/2003.08119</a> (2020).</p><p id="72664667-a458-4227-90ea-7463d66698de" class="">J. Xu and F. Wang, “Federated learning for healthcare informatics,” arXiv preprint arXiv:1911.06270, 2019.</p><p id="a243ee4a-da62-42d7-85d2-41cd4be4166d" class="">Yang, Q., Liu, Y., Chen, T., Tong, Y.: Federated machine learning: Concept and applications. ACM Trans. Intell. Syst. Technol. 10(2), 12:1–12:19 (2019). DOI 10.1145/3298981. URL <a href="http://doi.acm.org/10.1145/3298981">http://doi.acm.org/10.1145/3298981</a></p><p id="1ee2ab74-fcda-46a1-800e-be03b2d94b23" class="">Kulkarni, V., Kulkarni, M., Pant, A.: Survey of personalization techniques for federated learning. arXiv preprint arXiv:2003.08673 (2020)</p><p id="020f2d98-1ab5-49fb-b57a-7f81e0db4890" class="">Jin, Y., Wei, X., Liu, Y., Yang, Q.: A survey towards federated semi-supervised learning. arXiv preprint arXiv:2002.11545 (2020)</p><p id="058c4872-8742-462e-938c-681f18d4ff13" class="">Lim, W.Y.B., Luong, N.C., Hoang, D.T., Jiao, Y., Liang, Y.C., Yang, Q., Niyato, D., Miao, C.: Federated learning in mobile edge networks: A comprehensive survey. arXiv preprint arXiv:1909.11875 (2019</p><p id="5dca041a-b00c-40a2-bae4-9acf85565ed5" class="">Li, T., Sahu, A.K., Zaheer, M., Sanjabi, M., Talwalkar, A., Smith1, V.: Federated optimization for heterogeneous networks. arXiv preprint arXiv:1812.06127 (2019)</p><p id="cfd2f60b-4294-4784-8ed6-75959e65c109" class=""><strong>Kulcsszavak:</strong> data heterogeneity, privacy, decentralized data</p></div></article></body></html>
